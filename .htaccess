@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+</IfModule>
+
+# Restrict the maximum upload size to 999MB
+php_value upload_max_filesize 999000000000
+php_value post_max_size 999000000000
+
+# Compensate for slow connection times, otherwise video uploads may not complete
+php_value max_execution_time 99999999
+php_value max_input_time 99999999
