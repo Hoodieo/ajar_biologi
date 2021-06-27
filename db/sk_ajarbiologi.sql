@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 24, 2021 at 05:08 AM
+-- Generation Time: Jun 26, 2021 at 05:24 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -43,6 +43,28 @@ INSERT INTO `kelas` (`id`, `kelas`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `materi`
+--
+
+CREATE TABLE `materi` (
+  `id` int(11) NOT NULL,
+  `judul_materi` varchar(255) NOT NULL,
+  `deskripsi` text DEFAULT NULL,
+  `content` varchar(255) NOT NULL,
+  `id_tema` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `materi`
+--
+
+INSERT INTO `materi` (`id`, `judul_materi`, `deskripsi`, `content`, `id_tema`) VALUES
+(3, 'Ekosistem', '', '1624676245320lAHxmHcZkC38D9IIfSlzLiOnAbYxq3.pdf', 3),
+(4, 'Aliran Energi', '', '1624676262019Luk77FcXaeKO2Yii49sHmOl2CITI5N.pdf', 6);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `nilai`
 --
 
@@ -60,7 +82,8 @@ CREATE TABLE `nilai` (
 INSERT INTO `nilai` (`id`, `id_tema`, `id_siswa`, `nilai`) VALUES
 (3, 3, 8, 100),
 (4, 3, 10, 50),
-(5, 3, 9, 62.5);
+(5, 3, 9, 62.5),
+(6, 6, 8, 90);
 
 -- --------------------------------------------------------
 
@@ -181,7 +204,17 @@ INSERT INTO `soal` (`id`, `pertanyaan`, `opsi_a`, `opsi_b`, `opsi_c`, `opsi_d`, 
 (21, 'Kesimpulan yang tepat untuk gamar piramida energi diatas adalah....', 'Ketika puncak piramid dicapai, jumlah individu menurun tapi jumlah energinya meningkat', 'Ketika puncak piramid dicapai, jumlah individu meningkat, dan jumlah energi sama', 'Pada dasar piramid, jumlah individu dan jumlah energi yang terlibat adalah paling besar', 'Pada dasar piramid, jumlah individu dan jumlah energi yang terlibat adalah paling rendah', 'Pada semua tingkat, jumlah individu dan jumlah energi yang terlibat adalah sama', 'opsi_c', 'Perhatikan gambar diatas.', '1624160446736R8L2J7o2bRJdtB1NlpY16HrUG3xMDG.webp', 3),
 (22, 'Berdasarkan data diatas udara cadangan inspirasi adalah sebanyak...', '625 ml', '750 ml', '1500 ml', '3625  ml', '4625 ml', 'opsi_b', 'Perhatikan data hasil pengukuran volume udara pernapasan di bawah ini, pada seorang wanita, usia 20 tahun, posisi duduk, tinggi badan: 150 cm, berat badan: 44 kg, suhu kamar: 25°C.', '1624160552060c1S7ExHx5P6zu7QnlBdbLhBLwNULKK.webp', 3),
 (23, 'Pemakaian pestisida yang berlebihan akan mengakibatkan...', 'Menyuburkan tanah', 'Memperbanyak humus', 'Mematikan mikroba', 'Mematikan ular', 'Menyuburkan rasa sayang ke gebetan', 'opsi_c', 'Petani sedang menggunakan mobil besar untuk menyebar pestisida secara merata.', '1624160975824mUQ5Ou97WKIRZ2kaZp51p3jFO7bFsT.jpg', 3),
-(24, 'Pada jaring-jaring makanan tersebut terdapat beberapa rantai makanan di antaranya adalah sebagai berikut.', 'padi –&gt; tikus –&gt; elang –&gt; pengurai', 'padi –&gt; tikus –&gt; musang –&gt; elang –&gt; pengurai', 'padi –&gt; burung –&gt; musang –&gt; elang –&gt; pengurai', 'padi –&gt; burung –&gt; elang –&gt; pengurai', 'pengurai –&gt; padi –&gt; elang –&gt; burung', 'opsi_a', 'Perhatikan gambar diatas.', '1624161135088fuJ5qFE6nrZy1EO9CzWNY7tRVu88zM.png', 3);
+(24, 'Pada jaring-jaring makanan tersebut terdapat beberapa rantai makanan di antaranya adalah sebagai berikut.', 'padi –&gt; tikus –&gt; elang –&gt; pengurai', 'padi –&gt; tikus –&gt; musang –&gt; elang –&gt; pengurai', 'padi –&gt; burung –&gt; musang –&gt; elang –&gt; pengurai', 'padi –&gt; burung –&gt; elang –&gt; pengurai', 'pengurai –&gt; padi –&gt; elang –&gt; burung', 'opsi_a', 'Perhatikan gambar diatas.', '1624161135088fuJ5qFE6nrZy1EO9CzWNY7tRVu88zM.png', 3),
+(28, 'Dalam suatu ekosistem danau terjadi perpindahan energi. Energi yg tersimpan paling tinggi terdapat di', 'Ikan', 'Udang', 'Burung', 'Bentos', 'Fitoplankton', 'opsi_e', '', '', 6),
+(29, 'Produsen merupakan makhluk hidup yang mampu menangkap energi matahari intuk kegiatan', 'Fotosintesis', 'Pembuahan', 'Pemanasan', 'Pencahayaan', 'Dehidrasi', 'opsi_a', '', '', 6),
+(30, 'Bumi mendapatkan energi dari matahari sebanyak', '1222 joule', '1234 joule', '1333 joule', '1022 joule', '1112 joule', 'opsi_d', '', '', 6),
+(31, 'Dekomposer berperan mengembalikan materi ke lingkungan abiotik dan digunakan kembali oleh', 'Tumbuhan hijau', 'Hewan liar', 'Air', 'Udara', 'Tanah', 'opsi_a', '', '', 6),
+(32, 'Rantai makanan yaitu perpindahan materi dan energi melalui', 'proses makan dan dimakan dengan urutan tertentu', 'proses kehidupan', 'proses saling mengerti satu sama lain', 'proses makan dan dimakan tanpa urutan', 'proses alam', 'opsi_a', '', '', 6),
+(33, 'Tiap tingkat dari rantai makanan disebut tingkat trofi atau', 'Taraf trofi', 'Tarif trofi', 'Taraf torosi', 'Tarif trosi', 'Taraf sasi', 'opsi_a', '', '', 6),
+(34, 'Organisme pertama yang mampu menghasilkan zat makanan adalah', 'Hewan', 'Manusia', 'Alama', 'Udara', 'Tumbuhan', 'opsi_e', '', '', 6),
+(35, 'Yang manakah organisme berikut ini yang secara tidak tepat dipasangkan dengan tingkat trofiknya?', 'Sianobakter -- produsen primer', 'Belalang - konsumen primer', 'Zooplankton -- konsumen sekunder', 'Elang -- konsumen tersier', 'Fungi -- detritivor', 'opsi_c', '', '', 6),
+(36, 'Rantai makanan terdapat tiga macam &quot;rantai&quot; pokok yang menghubungkan antar tingkatan trofik, yaitu', 'Rantai pemangsa, rantai saprofit dan rantai parasit', 'Rantai pemangsa, rantai saprofat dan rantai parasit', 'Rantai pemangsa, rantai saprfita dan rantai parasit', 'Rantai pemangsa, rantai sapriofit dan rantai parasit', 'Rantai pemangsa, rantai saprosit dan rantai parasit', 'opsi_a', '', '', 6),
+(37, 'Perbedaan rantai makanan dan jaring-jaring makanan', 'Rantai makanan organisme hanya memakan satu jenis organisme saja, sedangkan pada jaring-jaring makanan organisme memakan organisme lainya yang tidak hanya satu jenis saja', 'Rantai makanan organisme memakan organisme lainya yang tidak hanya satu jenis saja, sedangkan jaring-jaring makanan organisme hanya memakan satu jenis organisme saja', 'Rantai makanan adalah rantai pemangsa sedangkan jaring-jaring makanan bukan rantai pemangsa', 'Rantai makanan organisme hanya memakan satu jenis organisme saja, sedangkan pada jaring-jaring makanan organisme memakan satu jenis organisme.', 'Tidak ada perbedaan', 'opsi_a', '', '', 6);
 
 -- --------------------------------------------------------
 
@@ -200,10 +233,7 @@ CREATE TABLE `tema` (
 
 INSERT INTO `tema` (`id`, `nama_tema`) VALUES
 (3, 'Ekosistem'),
-(6, 'Aliran Energi'),
-(7, 'Daur Materi'),
-(8, 'Rantai Makanan'),
-(9, 'Jaring-jaring Makanan');
+(6, 'Aliran Energi');
 
 -- --------------------------------------------------------
 
@@ -253,7 +283,19 @@ INSERT INTO `temp_data_nilai` (`id`, `id_tema`, `id_siswa`, `id_soal`, `score`) 
 (227, 3, 12, 19, 0),
 (228, 3, 15, 17, 0),
 (229, 3, 15, 18, 0),
-(230, 3, 12, 20, 0);
+(230, 3, 12, 20, 0),
+(231, 6, 8, 28, 1),
+(232, 6, 8, 29, 0),
+(233, 6, 8, 30, 1),
+(234, 6, 8, 31, 1),
+(235, 6, 8, 32, 1),
+(236, 6, 8, 33, 1),
+(237, 6, 8, 34, 1),
+(238, 6, 8, 35, 1),
+(239, 6, 8, 36, 1),
+(240, 6, 8, 37, 1),
+(241, 6, 12, 28, 0),
+(242, 6, 12, 29, 0);
 
 --
 -- Indexes for dumped tables
@@ -263,6 +305,12 @@ INSERT INTO `temp_data_nilai` (`id`, `id_tema`, `id_siswa`, `id_soal`, `score`) 
 -- Indexes for table `kelas`
 --
 ALTER TABLE `kelas`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `materi`
+--
+ALTER TABLE `materi`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -312,10 +360,16 @@ ALTER TABLE `kelas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `materi`
+--
+ALTER TABLE `materi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `nilai`
 --
 ALTER TABLE `nilai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
@@ -333,7 +387,7 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT for table `soal`
 --
 ALTER TABLE `soal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `tema`
@@ -345,7 +399,7 @@ ALTER TABLE `tema`
 -- AUTO_INCREMENT for table `temp_data_nilai`
 --
 ALTER TABLE `temp_data_nilai`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=243;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

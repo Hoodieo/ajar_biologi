@@ -13,7 +13,7 @@
         <li class="sidebar-item <?=checkMenuActive('tema')?>">
             <a href="index?m=tema" class='sidebar-link'>
                 <i class="bi bi-file-earmark-spreadsheet-fill"></i>
-                <span>Tema</span>
+                <span> <?= ($_SESSION['status'] == 'siswa') ? 'Latihan Soal' : 'Tema' ?> </span>
             </a>
         </li>
 
@@ -26,6 +26,13 @@
         </li>
         <?php } ?>
         <?php } ?>
+
+        <li class="sidebar-item <?=checkMenuActive('materi')?>">
+            <a href="index?m=materi" class='sidebar-link'>
+                <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                <span>Materi</span>
+            </a>
+        </li>
 
         <?php if ($_SESSION['status'] == 'admin' || $_SESSION['status'] == 'kepsek' || $_SESSION['status'] == 'wakepsek') { ?>
         <li class="sidebar-item <?=checkMenuActive('siswa')?>">
@@ -72,6 +79,13 @@
             </a>
         </li>
         <?php endif; ?>
+
+        <li class="sidebar-item <?=checkMenuActive('bantuan')?>">
+            <a href="index?m=bantuan" class='sidebar-link'>
+                <i class="bi bi-stack"></i>
+                <span>Bantuan</span>
+            </a>
+        </li>
 
         <li class="sidebar-item">
             <a href="actions?action=logout" class='btn btn-outline-danger w-100'>

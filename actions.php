@@ -243,46 +243,6 @@ switch ($_GET['action']){
 
 // MODULE ACTIONS
 switch ($module){
-    // =================== FOODS ===================
-    case 'foods':
-        $id         = trim($_POST['id']);
-        $menu       = trim($_POST['menu']);
-        $category   = trim($_POST['category']);
-        $price      = trim($_POST['price']);
-
-        switch ($_action) {
-            case 'tambah':
-                $query = $db->query("INSERT INTO foods(id, menu, category, price) VALUES (NULL,'$menu','$category',$price)");
-
-                if ($query) {
-                    echo "Data disimpan!#info";
-                } else {
-                    echo "Data failed to save. Details: ".$query."#danger";
-                }
-                break;
-
-            case 'edit':
-                $query = $db->query("UPDATE foods SET menu='$menu', category='$category', price='$price' WHERE id='$id'");
-
-                if ($query) {
-                    echo "Data diupdate!#info";
-                } else {
-                    echo "Failed to update data. Details:".$query."#danger";
-                }
-                break;
-
-            case 'hapus':
-                $query = $db->query("DELETE FROM foods WHERE id='$id'");
-
-                if ($query) {
-                    echo "Data dihapus!#info";
-                } else {
-                    echo "Failed to delete data. Details:".$query."#danger";
-                }
-                break;
-        }
-    break;
-
     // =================== TEMA ===================
     case 'tema':
         $id     = trim($_POST['id']);
@@ -317,6 +277,35 @@ switch ($module){
                 } else {
                     echo "Failed to delete data. Details:".$query."#danger";
                 }
+                break;
+        }
+    break;
+
+    // =================== MATERI ===================
+    case 'materi':
+        $id                 = $_POST['id'];
+        $id_tema            = $_POST['id_tema'];
+        $judul_materi       = trim($_POST['judul_materi']);
+        $deskripsi_materi   = trim($_POST['deskripsi_materi']);
+        $content            = ($_POST['image_url']) ? $_POST['image_url'] : $_POST['tmp_image_url'] ;
+
+        switch ($_action) {
+            case 'tambah':
+                $query = $db->query("INSERT INTO materi(id, judul_materi, deskripsi, content, id_tema) VALUES (NULL,'$judul_materi', '$deskripsi_materi', '$content', $id_tema)");
+
+                echo "Data disimpan!#info";
+                break;
+
+            case 'edit':
+                $query = $db->query("UPDATE materi SET judul_materi='$judul_materi', deskripsi='$deskripsi_materi', content='$content', id_tema=$id_tema WHERE id='$id'");
+
+                echo "Data diupdate!#info";
+                break;
+
+            case 'hapus':
+                $query = $db->query("DELETE FROM materi WHERE id='$id'");
+
+                echo "Data dihapus!#info";
                 break;
         }
     break;
